@@ -25,5 +25,9 @@
   "bugs": {
     "url": "https://github.com/Mwr247/pngz-js/issues"
   },
-  "homepage": "https://github.com/Mwr247/pngz-js#readme"
+  "homepage": "https://github.com/Mwr247/pngz-js#readme",
+  "dependencies": {
+    "node-png": "^0.4.3",
+    "pngjs": "^2.2.0"
+  }
 }
