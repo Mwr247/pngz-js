@@ -1,0 +1,29 @@
+{
+  "name": "pngz",
+  "version": "0.0.1",
+  "description": "A library for encoding/decoding data into PNG images",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mwr247/pngz-js.git"
+  },
+  "keywords": [
+    "png",
+    "encode",
+    "decode",
+    "encrypt",
+    "decrypt",
+    "compress",
+    "decompress",
+    "obfuscate"
+  ],
+  "author": "mwr247",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mwr247/pngz-js/issues"
+  },
+  "homepage": "https://github.com/Mwr247/pngz-js#readme"
+}
