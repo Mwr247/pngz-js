@@ -11,7 +11,8 @@ var hashAlgorithm = 'sha256';
 
 // Output PNG
 function toPNG(buffer, callback) { // Buffer, Function
-  var dim = Math.sqrt(buffer.length / 3);
+  var len = buffer.length;
+  var dim = Math.sqrt(len / 3);
   var png = new PNG({
     width: Math.ceil(dim),
     height: Math.round(dim),
@@ -19,7 +20,24 @@ function toPNG(buffer, callback) { // Buffer, Function
     inputHasAlpha: false
   });
   var pixels = [];
-  png.data = buffer;
+
+  var max = png.width * png.height * 3;
+  var px = new Buffer(max - len);
+  var i = 0;
+  if (len % 3 == 2){
+    px[i] = (buffer[(i + 29) % len] + 37) % 256; i++;
+  } else if (len % 3 == 1){
+    px[i] = (buffer[(i + 23) % len] + 41) % 256; i++;
+    px[i + 1] = (buffer[(i + 29) % len] + 37) % 256; i++;
+  }
+  var end = i;
+  for(i = end; i < max; i = i + 3){
+    px[i] = (buffer[(i + 19) % len] + 43) % 256;
+    px[i + 1] = (buffer[(i + 23) % len] + 41) % 256;
+    px[i + 2] = (buffer[(i + 29) % len] + 37) % 256;
+  }
+
+  png.data = Buffer.concat([buffer, px]);
   png.pack().on('data', function(data) {
     pixels.push(data);
   }).on('end', function() {
