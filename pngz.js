@@ -20,7 +20,7 @@ if (args.length >= 3) {
   } else if (/^(--?|\/)?d(e(code)?)?$/i.test(args[0])) {
     fs.readFile(args[2], function(err, png) {
       if (err) {throw new Error(err);}
-      PNGz.decode(png, args[3] || null, function(err, data) {
+      PNGz.decode(png, args[3] || null, function(err, data) {  
         if (err) {return console.log(err);}
         fs.writeFile(args[1], data, function(err) {
           if (err) {throw new Error(err);}

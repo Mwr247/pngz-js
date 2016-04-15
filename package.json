@@ -28,6 +28,7 @@
   "homepage": "https://github.com/Mwr247/pngz-js#readme",
   "dependencies": {
     "node-png": "^0.4.3",
+    "png-stream": "^1.0.4",
     "pngjs": "^2.2.0"
   }
 }
